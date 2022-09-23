@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   constructor() {
     this.title = 'Todoapp'
-    this.todoList = null
+
     // this.todoList = {
     //   update: false,
     //   tempId: "",
@@ -42,7 +42,8 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    if (this.todoList !== null) {
+    console.log("object")
+    if (JSON.parse(localStorage.getItem("data")!)) {
       this.todoList = JSON.parse(localStorage.getItem("data")!);
       localStorage.setItem('data', JSON.stringify(this.todoList))
 
