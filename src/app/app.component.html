@@ -10,12 +10,14 @@
         <input type="text" class="form-control" placeholder="Enter your task" [(ngModel)]="todoList.task" name="task" />
         <button class="btn btn-outline-secondary text-white" type="button" (click)="handleAddtodo()">
           <span *ngIf="!todoList.update;else addAndUpdate">
-            Add
+            <i class="bi bi-plus-lg"></i>
           </span>
-          <ng-template #addAndUpdate>Update</ng-template>
+          <ng-template #addAndUpdate> <i class="bi bi-pencil-square"></i>
+          </ng-template>
         </button>
         <button class="btn btn-danger text-white btn-outline-secondary" type="button" (click)="handleClear()">
-          Clear
+          <i class="bi bi-folder-x"></i>
+
         </button>
       </form>
     </div>
@@ -29,14 +31,15 @@
           </p>
           <div class="btn-group" role="group" aria-label="Basic mixed styles example">
             <button type="button" class="btn btn-danger" checked="item.check" (click)="handleRemove(item.id)">
-              Delete
+              <i class="bi bi-trash"></i>
             </button>
             <label class="btn" [ngClass]="item.check? 'btn-primary': 'btn-outline-primary'">
               <input type="checkbox" class="btn-check" (click)="handleCheck(item.id)">
-              check
+              <i class="bi bi-check2-all"></i>
             </label>
             <button type="button" class="btn btn-success" (click)="handleEdit(item.id)" [disabled]="item.check">
-              edit
+              <i class="bi bi-pencil-fill"></i>
+
             </button>
           </div>
         </div>
